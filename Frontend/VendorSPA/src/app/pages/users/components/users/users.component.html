@@ -1,0 +1,69 @@
+<div class="container-fluid">
+  <app-pagetitle title="Vendors" [breadcrumbItems]="breadCrumbItems"></app-pagetitle>
+  <div class="row">
+    <div class="col-12">
+      <div class="card">
+        <div class="card-header">
+          <button class="btn btn-primary" [routerLink]="['/users/add']" routerLinkActive="router-link-active" >Create Vendor</button>
+        </div>
+        <div class="card-body p-2">
+          
+          <!-- Table -->
+          <div class="table-responsive">
+            <table id="basic-datatable" class="
+                table table-striped table-hover table-bordered
+                dt-responsive
+              ">
+              <thead>
+                <tr>
+                  <th>Id</th>
+                  <th>Name</th>
+                  <th>Email</th>
+                  <th>Mobile</th>
+                  <th>Created</th>
+                  <th>Action</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let table of attestators; let i = index">
+                  <td>
+                    {{ i + 1}}
+                  </td>
+                  <td>
+                    <a class="text-dark font-weight-bold">
+                      {{ table.firstName}}
+                    </a>
+                  </td>
+                  <td>
+                    {{ table.email }}
+                  </td>
+                  <td>{{ table.phoneNumber }}</td>
+
+                  <td>{{ table.created | date: "dd/MM/yyyy" }}</td>
+                  <td>
+                    <a [routerLink]="['/users/edit/', table.id]" routerLinkActive="router-link-active"
+                      class="btn btn-sm btn-icon btn-icon-secondary" placement="top" ngbTooltip="Edit"><i
+                        class="mdi mdi-pencil font-size-18"></i> Edit
+                    </a>
+                    
+                    <a [routerLink]="'/vendors/files/' + table?.id + '/' + table?.firstName "
+                      routerLinkActive="router-link-active" class="btn btn-secondary btn-sm mr-1" placement="top"
+                      ngbTooltip="Edit">
+                      Invoices
+                    </a>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+            <app-table-loader *ngIf="isLoading"></app-table-loader>
+
+          </div>
+          <!-- End table -->
+          <app-pagination [pageIndex]="parms.pageNumber" [pageSize]="parms.pageSize"
+            (onChangeHandler)="handlePageChange($event)"></app-pagination>
+          <!-- End Pagination -->
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,51 @@
+<div class="modal-header">
+  <h4 class="modal-title pull-left">Upload Invoice</h4>
+  <button type="button" class="close" aria-hidden="true" (click)="close()">×</button>
+
+</div>
+<div class="modal-body">
+  <div class="row g-3 align-items-center">
+    <form class="form-horizontal" [formGroup]="signupForm" (ngSubmit)="onSubmit()">
+      <ngb-alert type="success" *ngIf="successmsg" [dismissible]="false">Invoice upload successfull.
+      </ngb-alert>
+      <ngb-alert type="danger" *ngIf="error" [dismissible]="false">{{ error }}</ngb-alert>
+
+      <div class="form-group auth-form-group-custom mb-4">
+        <i class="ri-user-2-line auti-custom-input-icon"></i>
+        <label for="username">Username</label>
+        <input type="text" formControlName="username" class="form-control"
+          [ngClass]="{ 'is-invalid': submitted && f.username.errors }" id="username" placeholder="Enter username">
+        <div *ngIf="submitted && f.username.errors" class="invalid-feedback">
+          <div *ngIf="f.username.errors.required">Userame is required</div>
+        </div>
+      </div>
+      <div class="form-group auth-form-group-custom mb-4">
+        <i class="ri-mail-line auti-custom-input-icon"></i>
+        <label for="email">Email</label>
+        <input type="email" formControlName="email" class="form-control"
+          [ngClass]="{ 'is-invalid': submitted && f.email.errors }" id="email" placeholder="Email">
+        <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+          <div *ngIf="f.email.errors.required">Email is required</div>
+          <div *ngIf="f.email.errors.email">Email must be a valid email address</div>
+        </div>
+      </div>
+      <div class="form-group auth-form-group-custom mb-4">
+        <i class="ri-lock-2-line auti-custom-input-icon"></i>
+        <label for="password">Password</label>
+        <input type="password" formControlName="password" class="form-control"
+          [ngClass]="{ 'is-invalid': submitted && f.password.errors }" id="password" placeholder="Password">
+        <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
+          <div *ngIf="f.password.errors.required">Password is required</div>
+        </div>
+      </div>
+
+      <div class="text-center">
+        <button class="btn btn-primary w-md waves-effect waves-light" type="submit">Register</button>
+      </div>
+
+    </form>
+  </div>
+</div>
+<!-- <div class="modal-footer">
+  <button type="button" class="btn btn-primary" (click)="onSubmit()">Upload File</button>
+</div> -->

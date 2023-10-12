@@ -1,0 +1,11 @@
+[
+    {
+        "Name": "SuperAdmin"
+    },
+    {
+        "Name": "Attestator"
+    },
+    {
+        "Name": "Client"
+    }
+]

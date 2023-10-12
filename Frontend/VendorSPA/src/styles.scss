@@ -1,0 +1,24 @@
+/* You can add global styles to this file, and also import other style files */
+// @import 'src/assets/scss/bootstrap.scss';
+// @import "src/assets/scss/app.scss";
+
+.table thead tr {
+    background-color: rgba(56,142,60,.25)!important;
+}
+.table thead th {
+    vertical-align: bottom;
+    border-bottom: 2px solid #eff2f7;
+    font-size: 15px;
+    text-transform: uppercase;
+}
+.table-striped tbody tr:nth-of-type(odd) {
+    background-color: rgba(0,0,0,.05);
+}
+
+.modal {
+    z-index: 999999999 !important;
+}
+
+.table-bordered td, .table-bordered th {
+    border: 1px solid #b6b6b6;
+}
